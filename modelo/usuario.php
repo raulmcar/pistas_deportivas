@@ -83,7 +83,7 @@ require_once('bd.php');
                 $listaEmails = [];
 
                 while ($fila = $consulta->fetch()) {
-                    $listaEmails[] = $fila['email'];
+                    $listaEmails.push($fila['email']);
                 }
 
                 foreach ($listaEmails as $correo) {
