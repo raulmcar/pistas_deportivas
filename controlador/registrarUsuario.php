@@ -10,7 +10,7 @@
                 require_once('../modelo/usuario.php');
 
                 $usuario = new Usuario($_POST['nombre'], $_POST['apellidos'], $_POST['email'], $_POST['contrasena'], $_POST['telefono'], 
-                $_POST['dni'], $_POST['fecha_nacimiento']);
+                $_POST['dni'], $_POST['fecha_nacimiento'], "user");
 
                 if ($usuario->comprobarCorreo($_POST['email'])) {
                     $_SESSION['msg'] = "El correo electrónico ya está registrado";
