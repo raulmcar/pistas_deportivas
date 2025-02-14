@@ -1,5 +1,5 @@
 <?php
-require_once('bd.php');
+    require_once('bd.php');
 
     class Usuario{
         private string $nombre;

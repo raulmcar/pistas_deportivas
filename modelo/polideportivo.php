@@ -1,0 +1,50 @@
+<?php
+    require_once('bd.php');
+
+    class Polideportivo{
+        private string $nombre;
+        private string $direccion;
+        private string $extension;
+
+        public function __construct(string $nombre, string $direccion, string $extension){
+            $this->nombre = $nombre;
+            $this->direccion = $direccion;
+            $this->direccion = $extension;
+        }
+
+        public function __destruct(){
+            $this->nombre = "";
+            $this->direccion = "";
+            $this->extension = "";
+        }
+
+        public function registrarPolideportivo(){
+            $registro = false;
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+
+                $consulta = $bdConexion->prepare("INSERT INTO polideportivo(nombre, direccion, extension)
+                    VALUES (?,?,?)");
+
+                $consulta->bindParam(1, $this->nombre);
+                $consulta->bindParam(2, $this->direccion);
+                $consulta->bindParam(3, $this->extension);
+
+                $consulta->execute();
+                $registro = true;
+                return $registro;
+            }
+            catch(PDOException $e){
+                echo "Error al insertar los datos del polideportivo: " . $e->getMessage();
+
+                return $registro;
+            }
+        }
+
+        
+
+
+    }
+?>
