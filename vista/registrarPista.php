@@ -21,7 +21,7 @@
         </nav>
     </div>
     <div class="row d-flex justify-content-center mt-5">
-    <form class="col-4 mt-5 p-3 rounded bg-dark bg-gradient" action="../controlador/registrarPolideportivo.php" method="post">
+    <form class="col-4 mt-5 p-3 rounded bg-dark bg-gradient" action="../controlador/registrarPista.php" method="post">
         <label class="form-label text-warning">Tipo de pista</label>
         <select class="form-select mb-3" name="tipo_pista">
             <option selected>Abre para ver el tipo de pista</option>
