@@ -9,7 +9,7 @@
         public function __construct(string $nombre, string $direccion, string $extension){
             $this->nombre = $nombre;
             $this->direccion = $direccion;
-            $this->direccion = $extension;
+            $this->extension = $extension;
         }
 
         public function __destruct(){
@@ -43,7 +43,52 @@
             }
         }
 
-        
+        public function comprobarPolideportivo(string $nombrePolideportivo){
+            $existe = false;
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT nombre FROM polideportivo WHERE nombre = '$nombrePolideportivo'");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $fila = $consulta->fetch();
+
+                if($fila){
+                    $existe = true;
+                } else {
+                    $existe = false;
+                }
+            }
+            catch(PDOException $e){
+                echo "Error al consultar los datos: " . $e->getMessage();
+            }
+
+            return $existe;
+        }
+
+        public static function desplegarPolideportivo(){
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+                $consulta = $bdConexion->prepare("SELECT id_polideportivo, nombre FROM polideportivo");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $polideportivos = [];
+
+                while ($polideportivo = $consulta->fetch()){
+                    
+                }
+            }
+            
+
+
+
+
+        }
 
 
     }

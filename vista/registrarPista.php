@@ -22,23 +22,25 @@
     </div>
     <div class="row d-flex justify-content-center mt-5">
     <form class="col-4 mt-5 p-3 rounded bg-dark bg-gradient" action="../controlador/registrarPolideportivo.php" method="post">
+        <label class="form-label text-warning">Tipo de pista</label>
+        <select class="form-select mb-3" name="tipo_pista">
+            <option selected>Abre para ver el tipo de pista</option>
+            <option value="Fútbol">Fútbol</option>
+            <option value="Baloncesto">Baloncesto</option>
+            <option value="Padel">Padel</option>
+            <option value="Tenis">Tenis</option>
+        </select>
         <div class="mb-3">
-            <label class="form-label text-warning">Nombre del polideportivo</label>
-            <input type="text" name="nombrePolideportivo" class="form-control">
+            <label class="form-label text-warning">Precio</label>
+            <input type="text" name="precio" class="form-control">
         </div>
-        <div class="mb-3">
-            <label class="form-label text-warning">Direccion</label>
-            <input type="text" name="direccion" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label class="form-label text-warning">Extension en hectáreas</label>
-            <input type="text" name="extension" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Regsitrar polideportivo</button>
+
+
+
+        <button type="submit" class="btn btn-primary">Regsitrar pista</button>
     </form>
     </div>
 </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

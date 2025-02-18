@@ -2,11 +2,17 @@
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if (isset($_POST['nombrePolideportivo'], $_POST['direccion'], $_POST['extension']) && !empty($_POST['nombrePolideportivo']) && !empty($_POST['direccion'])) 
-        && !empty($_POST['extension']) {
+        if (isset($_POST['nombrePolideportivo'], $_POST['direccion'], $_POST['extension']) && !empty($_POST['nombrePolideportivo']) && !empty($_POST['direccion']) 
+        && !empty($_POST['extension'])) {
             require_once('../modelo/polideportivo.php');
 
             $polideportivo = new Polideportivo($_POST['nombrePolideportivo'], $_POST['direccion'], $_POST['extension']);
+
+            if ($polideportivo->comprobarPolideportivo($_POST['nombrePolideportivo'])) {
+                $_SESSION['msg'] = "El polideportivo ya está registrado";
+                header('Location: ../vista/vistaAdmin.php');
+                exit();
+            }
 
             if ($polideportivo->registrarPolideportivo()) {
                 $_SESSION['msg'] = "El polideportivo se ha registrado correctamente.";

@@ -33,14 +33,11 @@
             <div class="card-body">
                 <h5 class="card-title">Añadir pista</h5>
                 <p class="card-text">También puedes añadir una nueva pista, editar la información de la pista o ver todas las pistas</p>
-                <a href="#" class="btn btn-primary">Registrar nueva pista</a>
+                <a href="./registrarPista.php" class="btn btn-primary">Registrar nueva pista</a>
             </div>
         </div>
     </div>
 </div>
-
-
-
 
 
     <?php
