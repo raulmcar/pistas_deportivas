@@ -80,14 +80,15 @@
                 $polideportivos = [];
 
                 while ($polideportivo = $consulta->fetch()){
-                    
+                    $polideportivos[] = $polideportivo;
                 }
+
+                return $polideportivos;
             }
-            
-
-
-
-
+            catch(PDOException $e){
+                echo "Error al mostrar los polideportivos " . $e->getMessage();
+                return $polideportivos = [];
+            }
         }
 
 

@@ -34,9 +34,21 @@
             <label class="form-label text-warning">Precio</label>
             <input type="text" name="precio" class="form-control">
         </div>
+        <?php
+            require_once('../modelo/polideportivo.php');
+            $polideportivo = Polideportivo::desplegarPolideportivo();
 
-
-
+            if (!empty($polideportivos)){
+                echo "<select class='form-select mb-3' name='poli'>";
+                foreach($polideportivos as $poli){
+                    echo "<option value='{$poli['id_polideportivo']}'>{$poli['nombre']}</option>";
+                }
+                echo "</select>";
+            } else {
+                echo "<p>No hay polideportivos registrados</p>";
+            }
+            
+        ?>
         <button type="submit" class="btn btn-primary">Regsitrar pista</button>
     </form>
     </div>
