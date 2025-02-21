@@ -23,7 +23,7 @@
         <div class="card m-2" style="width: 18rem;">
         <img src="../imagenes/polideportivo.jpg" class="card-img-top mt-2" alt="polideportivo">
             <div class="card-body">
-                <h5 class="card-title">Añadir polideportivo</h5>
+                <h5 class="card-title">Polideportivos</h5>
                 <p class="card-text">Con esta opción puedes ver los polideportivos, editar su información y añadir un polideportivo nuevo</p>
                 <a href="./registrarPolideportivo.php" class="btn btn-primary">Registrar nuevo polideportivo</a>
             </div>
@@ -31,9 +31,10 @@
         <div class="card m-2" style="width: 18rem;">
         <img src="../imagenes/pista.jpg" class="card-img-top mt-2" alt="polideportivo">
             <div class="card-body">
-                <h5 class="card-title">Añadir pista</h5>
+                <h5 class="card-title">Pistas</h5>
                 <p class="card-text">También puedes añadir una nueva pista, editar la información de la pista o ver todas las pistas</p>
                 <a href="./registrarPista.php" class="btn btn-primary">Registrar nueva pista</a>
+                <a href="./gestionarPista.php" class="btn btn-primary mt-3">Gestionar pistas</a>
             </div>
         </div>
     </div>

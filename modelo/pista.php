@@ -38,16 +38,61 @@
                 $consulta->bindParam(3, $this->precio);
                 $consulta->bindParam(4, $this->polideportivo);
 
+                $consulta->execute();
+                $registro = true;
+                return $registro;
 
             }
             catch(PDOException $e){
                 echo "Error al registrar la pista: " . $e->getMessage();
+
+                return $registro;
             }
         }
 
-        
+        public static function desplegarPistas(){
 
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
 
+                $consulta = $bdConexion->prepare("SELECT * FROM pista");
+                $consulta->setFetchMode(PDO::FETCH_ASSOC);
+                $consulta->execute();
+
+                $pistas = [];
+
+                while ($pista = $consulta->fetch()){
+                    $pistas[] = $pista;
+                }
+
+                return $pistas;
+            }
+            catch(PDOException $e){
+                echo "Error al mostrar las pistas: " . $e->getMessage();
+                return $pistas = [];
+            }
+        }
+
+        public static function eliminarPista(int $id_pista){
+            $borrado = false;
+
+            try{
+                $pdo = new BD();
+                $bdConexion = $pdo->getPDO();
+
+                $consulta = $bdConexion->prepare("DELETE FROM pista WHERE id_pista = '$id_pista'");
+
+                $consulta->execute();
+                $borrado = true;
+                return $borrado;
+            }
+            catch(PDOException $e){
+                echo "Ha habido un error al eliminar la pista: " . $e->getMessage();
+
+                return $borrado;
+            }
+        }
 
 
     }

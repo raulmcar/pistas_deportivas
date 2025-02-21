@@ -25,18 +25,18 @@
         <label class="form-label text-warning">Tipo de pista</label>
         <select class="form-select mb-3" name="tipo_pista">
             <option selected>Abre para ver el tipo de pista</option>
-            <option value="Fútbol">Fútbol</option>
+            <option value="Futbol">Fútbol</option>
             <option value="Baloncesto">Baloncesto</option>
             <option value="Padel">Padel</option>
             <option value="Tenis">Tenis</option>
         </select>
-        <div class="mb-3">
+        <div class="mb-4">
             <label class="form-label text-warning">Precio</label>
             <input type="text" name="precio" class="form-control">
         </div>
         <?php
             require_once('../modelo/polideportivo.php');
-            $polideportivo = Polideportivo::desplegarPolideportivo();
+            $polideportivos = Polideportivo::desplegarPolideportivo();
 
             if (!empty($polideportivos)){
                 echo "<select class='form-select mb-3' name='poli'>";
