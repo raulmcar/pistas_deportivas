@@ -49,6 +49,13 @@
                                 <form action='../controlador/gestionarPista.php' method='post'>
                                     <input type='hidden' name='id_pista_escondida' value={$pista['id_pista']}>
                                     <input type='submit' value='Eliminar'>
+                                </form><br>
+                                <form action='../vista/editarPista.php' method='post'>
+                                    <input type='hidden' name='id_pista_escondida' value={$pista['id_pista']}>
+                                    <input type='hidden' name='tipo_pista_escondida' value={$pista['tipo_pista']}>
+                                    <input type='hidden' name='estado_escondido' value={$pista['estado']}>
+                                    <input type='hidden' name='precio_escondido' value={$pista['precio']}>
+                                    <input type='submit' value='Editar'>
                                 </form>
                                 </td>
                             </tr>";

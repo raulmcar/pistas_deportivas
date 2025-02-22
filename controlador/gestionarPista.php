@@ -3,7 +3,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (isset($_POST['id_pista_escondida']) && !empty($_POST['id_pista_escondida'])){
-            require_once('../modelo/pista');
+            require_once('../modelo/pista.php');
 
             if(Pista::eliminarPista($_POST['id_pista_escondida'])){
                 $_SESSION['msg'] = "Se ha eliminado correctamente la pista.";
