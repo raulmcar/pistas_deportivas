@@ -56,6 +56,7 @@
                 $consulta->execute();
                 $registro = true;
                 return $registro;
+                unset($bdConexion);
             } 
             catch(PDOException $e){
                 echo "Error al insertar los datos: " . $e->getMessage();

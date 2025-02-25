@@ -1,11 +1,17 @@
 <?php
     session_start();
-    require_once('./modelo/bd.php');
+    $usuario = "root";
+    $password = "Furciademierda4";
+    $host = "localhost";
 
 
     try {
-        $pdo = new BD();
-        $bdConexion = $pdo->getPDO();
+        $bdConexion = new PDO("mysql:host=$host",$usuario,$password);
+        
+        $bdConexion->exec("CREATE DATABASE IF NOT EXISTS gestion_deportiva;");
+
+        $bdConexion->exec("USE gestion_deportiva;");
+
         $bdConexion->beginTransaction();
 
         $bdConexion->exec("CREATE TABLE IF NOT EXISTS usuario(
@@ -58,10 +64,12 @@
             REFERENCES usuario(id_usuario) ON DELETE CASCADE;");
 
         $bdConexion->commit();
+        $bdConexion = null;
         echo "Todo okay";
     }
     catch (PDOException $e) {
         $bdConexion->rollback();
+        $bdConexion = null;
         echo "Error en la instalacion: " . $e->getMessage();
     }
 
